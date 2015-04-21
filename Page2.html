@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang= "en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="js/jquery.js"> </script>
+
+
+		<link rel='stylesheet' href='spectrum.css' />
+		<script src='spectrum.js'></script>
+
+		<style>
+		body{background-color: #a8e0fa;
+			font-family: arial;
+			 padding-top: 30px; 
+		}
+		body {
+			text-align: center;
+			}
+			.nounderline{
+
+			text-decoration: none;
+			color: black;
+			
+		}
+		#verticalLine {
+    border-left: thick solid #0000ff;
+    border-right: thick solid #0000ff;
+    padding-top: 35px;
+    }
+		flashy{text-decoration: blink;}
+		
+		h1{
+			
+			animation-duration: 5s;
+			animation-name: slidein;
+
+		}
+
+			@keyframes slidein{
+				from{
+					margin-left: 100%;
+					width: 300%;
+				}
+				to{
+					margin-left: 0%;
+					width: 100%;
+				}
+			}
+
+
+
+
+			
+			
+		
+		</style>
+
+		<title> My Khan Academy Programs </title> 
+
+ 
+	</head>
+		<body> 
+					<div id="verticalLine">
+					<h1> If you like colors this is the place for you! Click on the box below to change the color of the page! :)</h1>
+
+			<nav class="navbar navbar-default navbar-fixed-top">
+
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Home</a>
+    </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      	<ul class="nav navbar-nav">
+      		 <li id="button"><a href="Page2.html">Background <span class="sr-only">(current)</span></a></li>
+
+        
+      <li id="button"><a href="HomeworkHelp.html"> Homework Help <span class="sr-only">(current)</span></a></li>
+					<li id="Author"><a href="AbouttheAuthor.html">About the Author <span class="sr-only">(current)</span></a></li>
+
+ 		 </ul>
+ 		  </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<input type='text' id="full"/>
+<h3 id= "Great-Job"></h3>
+
+			
+		
+	
+
+		<script> 
+			// Step 1: Set the thing we want to change as a variable
+			var verticalLine= document.getElementById("verticalLine");
+			// Step 2: Change something about it (like its borderLeft)
+			verticalLine.style.borderLeft= "thick solid #0000ff";
+
+			var flipped= 1;
+
+			/*var button= document.getElementById("button")
+			button.addEventListener("click", function(event){
+
+				event.preventDefault();
+				if (flipped){
+					verticalLine.style.backgroundColor= "#0000ff";	
+					flipped= 0;
+				}
+				else{
+					verticalLine.style.backgroundColor= "#a8e0fa";
+					flipped= 1;
+				}
+
+
+			}); */
+
+			console.log("Hi!");
+			var colorString = window.localStorage.getItem('color');
+			$('body').css('background-color', colorString);
+
+			$("#full").click(function(event) {
+				
+				$('#verticalLine').css("border-left", 'thick solid green');
+			});
+</script>
+<script>
+		$("#full").spectrum({
+		    color: "#ECC",
+		    change: function(color) {
+		    	$('#Great-Job').text('Great Job!');
+			   $('body').css('background-color', color.toHexString());
+
+			   window.localStorage.setItem('color', color.toHexString());
+
+			   // color._r = 0; // changes red part to 0
+			},
+		    palette: [
+		        ["rgb(0, 0, 0)", "rgb(67, 67, 67)", "rgb(102, 102, 102)",
+		        "rgb(204, 204, 204)", "rgb(217, 217, 217)","rgb(255, 255, 255)"],
+		        ["rgb(152, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 153, 0)", "rgb(255, 255, 0)", "rgb(0, 255, 0)",
+		        "rgb(0, 255, 255)", "rgb(74, 134, 232)", "rgb(0, 0, 255)", "rgb(153, 0, 255)", "rgb(255, 0, 255)"], 
+		        ["rgb(230, 184, 175)", "rgb(244, 204, 204)", "rgb(252, 229, 205)", "rgb(255, 242, 204)", "rgb(217, 234, 211)", 
+		        "rgb(208, 224, 227)", "rgb(201, 218, 248)", "rgb(207, 226, 243)", "rgb(217, 210, 233)", "rgb(234, 209, 220)", 
+		        "rgb(221, 126, 107)", "rgb(234, 153, 153)", "rgb(249, 203, 156)", "rgb(255, 229, 153)", "rgb(182, 215, 168)", 
+		        "rgb(162, 196, 201)", "rgb(164, 194, 244)", "rgb(159, 197, 232)", "rgb(180, 167, 214)", "rgb(213, 166, 189)", 
+		        "rgb(204, 65, 37)", "rgb(224, 102, 102)", "rgb(246, 178, 107)", "rgb(255, 217, 102)", "rgb(147, 196, 125)", 
+		        "rgb(118, 165, 175)", "rgb(109, 158, 235)", "rgb(111, 168, 220)", "rgb(142, 124, 195)", "rgb(194, 123, 160)",
+		        "rgb(166, 28, 0)", "rgb(204, 0, 0)", "rgb(230, 145, 56)", "rgb(241, 194, 50)", "rgb(106, 168, 79)",
+		        "rgb(69, 129, 142)", "rgb(60, 120, 216)", "rgb(61, 133, 198)", "rgb(103, 78, 167)", "rgb(166, 77, 121)",
+		        "rgb(91, 15, 0)", "rgb(102, 0, 0)", "rgb(120, 63, 4)", "rgb(127, 96, 0)", "rgb(39, 78, 19)", 
+		        "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
+		    ]
+		});
+
+		
+		</script>
+
+
+<script type="text/javascript" src="olivia.js"> </script>
+
+		</body>
+		</html>
+
+
+

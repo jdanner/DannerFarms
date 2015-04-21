@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang= "en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript" src="js/jquery.js"> </script>
+</head>
+<body>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Remember me
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default" id="SignIn">Sign in</button>
+        <button type="submit" class="btn btn-default" id="SignUp">Sign Up</button>
+        <h2 id= 'WrongEmailOrPassword'></h2>
+        <h3 id= 'RepeatEmailOrPassword'></h3>
+              </div>
+    </div>
+  </form>
+  <script>
+  // var email= "olivia@danners.org";
+  // var password= "Danner";
+
+// Things to fix up:
+// 1) When you hit "Sign Up", check to make sure there's no account with that email yet (i.e. window.localStorage.getItem(emailPutIn) === null)
+// 2) Up to you! :)
+
+//Decide Username and Password
+
+ $("#SignIn").click(function(event){
+  event.preventDefault();
+
+  var Email= $("#inputEmail3").val();
+  var PasswordGiven= $("#inputPassword3").val();
+  var PasswordProper= window.localStorage.getItem(Email);
+  if(PasswordProper != PasswordGiven) {
+     $('#WrongEmailOrPassword').text("Wrong email or password");
+  }
+ else{
+  window.location.href = "HomeworkHelp.html";
+ }
+
+    
+
+  });
+$("#SignUp").click(function(event){
+    var emailPutIn = $("#inputEmail3").val();
+    var passwordPutIn = $("#inputPassword3").val();
+    if(window.localStorage.getItem(emailPutIn) != null)  {
+      $('#RepeatEmailOrPassword').text("Your Email or your Password have allready been used by someone else:(");
+    }
+    else{
+     window.localStorage.setItem(emailPutIn,passwordPutIn); 
+    }
+    
+    
+
+});
+</script>
+</body>
+</html>

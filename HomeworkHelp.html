@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang= "en">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="olivia.js"> </script>
+<script type="text/javascript" src="js/jquery.js"> </script>
+
+
+<head> 
+	<style>
+	body{
+		background-color: #a8e0fa;
+		font-family: arial;
+		padding-top: 30px;
+	}
+
+		
+
+
+
+	 
+	</style>
+
+</head>
+
+<body> 
+	
+	
+		
+
+		<nav class="navbar navbar-default navbar-fixed-top">
+
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="Index.html">Home</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li id="button"><a href="Page2.html">Background <span class="sr-only">(current)</span></a></li>
+
+
+						<li id="button"><a href="HomeworkHelp.html"> Homework Help <span class="sr-only">(current)</span></a></li>
+						<li id="Author"><a href="AbouttheAuthor.html">About the Author <span class="sr-only">(current)</span></a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		
+
+
+
+
+		
+		<h2> This is a good place to get homework help!</h2>
+		Enter an equation and we will solve it: 
+		<form class = "form-inline">
+			<input type='text' id="equation-box" />
+			<select id="operation-box" class="form-control">
+				<option value= "+">+</option>
+				<option value= "-">-</option>
+				<option value= "*">*</option>
+				<option value= "/">/</option>
+			</select>
+			<input type='text' id="term2-box" class="form-control"/>
+		</form>
+
+		<button id= 'answer-button' type= "button" "class=btn btn-default btn-xs"> Answer Button</button>
+		<!-- <button type="button" class="btn-primary">Large button</button> -->
+		
+		<h2 id= 'Great-Job'>Great Job!</h2>
+		<script type="text/javascript" src="olivia.js"> </script>
+
+		<script> 
+
+		var $answerbutton = $('#answer-button');
+		
+  
+ // <button type="button" class="btn-default btn-lg">Large button</button>
+
+		$answerbutton.click(function(e) {
+			var number1= parseFloat($("#equation-box").val());
+			var number2= parseFloat($("#term2-box").val());
+			var operation= $("#operation-box").val();
+
+			var answer;
+			if (operation === "+")
+				answer = number1 + number2;
+
+			if(operation === "-")
+				answer= number1 - number2;
+			
+			if(operation === "*")
+				answer= number1 * number2;
+			
+			if(operation === "/")
+				answer= number1/number2;
+			
+
+			$('#Great-Job').text(answer);
+
+			$("#term2-box").val(0);
+			$("#equation-box").val(0);
+
+		});
+
+
+
+
+		</script>
+	</body>
